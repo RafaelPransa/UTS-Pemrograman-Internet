@@ -25,7 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    height: 6000px;
+    /* height: 000px; */
 }
 ol, ul {
 	list-style: none;
@@ -88,9 +88,6 @@ button {
 header {
     padding: 1rem 3%;
     background-color: #fff;
-}
-
-header {
     border-bottom: 1px solid #F2F2F2;
     position: fixed;
     top: 0;
@@ -132,17 +129,15 @@ header nav .mid-nav ul li a {
 
 header nav .mid-nav ul li:hover a{
     color: rgb(28, 25, 23);
-    font-weight: 600;
 }
-
-
 
 header nav .end-nav a .btn-sign {
     background-color: #fff;
     color: rgb(4, 170, 109);
     padding: 0.5rem 1.5rem;
-    border: 1px solid #eaeaea;
+    border: 1px solid #80de61;
     border-radius: 0.25rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-right: 10px;
 }
@@ -151,12 +146,14 @@ header nav .end-nav a .btn-sign:hover {
     cursor: pointer;
     color: rgb(5, 136, 88);
     background-color: rgb(245, 245, 244);
+    box-shadow: 0 0 10px 2px rgba(5, 136, 88, 0.8);
 }
 
 header nav .end-nav a .btn-register {
     background-color: rgb(4, 218, 139); 
     padding: 0.5rem 1.5rem;
     border-radius: 0.25rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #fff;
     transition: 0.3s;
@@ -166,6 +163,7 @@ header nav .end-nav a .btn-register:hover {
     background-color: rgb(4, 138, 89);
     color: #f1f1f1;
     cursor: pointer;
+    box-shadow: 0 0 10px 2px rgba(4, 106, 69, 0.8);
 }
 
 main {
@@ -207,6 +205,7 @@ main .hero .hero-content .btn-mencatat:hover {
     background-color: rgb(4, 138, 89);
     color: #f1f1f1;
     cursor: pointer;
+    box-shadow: 0 0 10px 2px rgba(4, 106, 69, 0.8);
 }
 
 main .hero .hero-content span {
@@ -216,5 +215,128 @@ main .hero .hero-content span {
 main .hero .hero-illustration img {
     width: 100%;
     height: 100%;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    header, main {
+        padding: 1rem 6%;
+    }
+
+    header nav .start-nav h2 {
+        font-size: 1.25rem;
+    }
+
+    header nav .mid-nav {
+        padding: 0.6rem 1rem;
+    }
+
+    header nav .mid-nav ul li {
+        margin: 0 0.5rem;
+    }
+
+    header nav .mid-nav ul li a {
+        font-size: 0.7rem;
+    }
+
+    header nav .end-nav a .btn-sign, header nav .end-nav a .btn-register {
+        padding: 0.4rem 1.2rem;
+    }
+
+    header nav .end-nav a .btn-sign, header nav .end-nav a .btn-register {
+        font-size: 0.7rem;
+    }
+
+    header nav .end-nav a .btn-sign {
+        margin-right: 7px;
+    }
+
+    main {
+        margin-top: 50px;
+    }
+
+    main .hero {
+        column-gap: 0.8rem;
+        margin-top: 1.4rem;
+    }
+
+    main .hero .hero-content h2 {
+        font-size: 4.5rem;
+    }
+
+    main .hero .hero-content .btn-mencatat {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        height: 1000px;
+    }
+
+    header{
+        position: static;
+        padding: 0.9rem 8%;
+    }
+
+    header nav .start-nav h2 {
+        font-size: 1.85rem;
+    }
+    
+    main {
+        margin-top: 75px;
+        padding: 0 8%;
+    }
+
+    main .hero {
+        flex-direction: column;
+    }
+
+    main .hero .hero-content {
+        flex: 1 1 0;
+    }
+
+    main .hero .hero-content h2 {
+        font-size: 4.25rem;
+        line-height: 0.9;
+    }
+
+    main .hero .hero-content .btn-mencatat{
+        margin-top: 30px;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    main .hero .hero-illustration {
+        margin-top: 30px;
+    }
+
+    .mobile-nav {
+        display: block;
+        padding: 1rem 8% 1.5rem;
+        background-color: #fff;
+        border-top: 1px solid #79a47d;;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .mobile-nav nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        column-gap: 3rem;
+        text-align: center;
+    }
+
+    .mobile-nav nav a {
+        max-width: 65px;
+    }
+
 }
 

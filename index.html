@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <header>
@@ -51,6 +52,33 @@
         </figure>
       </section>
     </main>
-    
+
+    <section class="mobile-nav">
+      <nav>
+        <a href="">
+          <div class="menu-mobile">
+            <i data-feather="home"></i>
+            <p>Beranda</p>
+          </div>
+        </a>
+        <a href="">
+          <div class="menu-mobile">
+            <i data-feather="dollar-sign"></i>
+            <p>Catatan</p>
+          </div>
+        </a>
+        <a href="">
+          <div class="menu-mobile">
+            <i data-feather="user"></i>
+            <p>Profile</p>
+          </div>
+        </a>
+      </nav>
+    </section>
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="script/app.js"></script>
   </body>
 </html>
