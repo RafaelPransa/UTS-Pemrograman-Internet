@@ -23,9 +23,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+/* Batas Reset */
+
 body {
 	line-height: 1;
-    /* height: 000px; */
 }
 ol, ul {
 	list-style: none;
@@ -83,7 +84,42 @@ button {
   font-style: italic;
 }
 
+/* Font Inter */
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-bold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
 /* Batas font */
+
+/* Variabel CSS */
+:root {
+    --black-main: #6e6e6e;
+    --black-accent: #a0a0a0;
+    --green-main: #00E38C;
+    --green-accent: #73ecbe;
+    --green-hover: #00bb73;;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* sesuaikan dengan tinggi navbar kamu */
+}
+
+body {
+    color: var(--black-main);
+    height: 6000px;
+}
 
 header {
     padding: 1rem 3%;
@@ -104,14 +140,17 @@ header nav {
 
 header nav .start-nav h2 {
     font-size: 1.5rem;
-    color: rgb(4, 170, 109);
+    color: var(--green-main);
 }
 
 header nav .mid-nav {
-    background-color: rgb(4, 218, 139);
     padding: 0.8rem 1.3rem;
     border-radius: 24px;
     transition: 0.3s;
+}
+
+header nav .mid-nav:hover {
+    background: var(--green-main);
 }
 
 header nav .mid-nav ul li {
@@ -120,11 +159,15 @@ header nav .mid-nav ul li {
 }
 
 header nav .mid-nav ul li a {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 0.85rem;
+    color: var(--black-main);
+    transition: 0.4s;
+}
+
+header nav .mid-nav:hover a {
     color: #fff;
-    transition: 0.3s;
 }
 
 header nav .mid-nav ul li:hover a{
@@ -135,35 +178,36 @@ header nav .end-nav a .btn-sign {
     background-color: #fff;
     color: rgb(4, 170, 109);
     padding: 0.5rem 1.5rem;
-    border: 1px solid #80de61;
+    border: 1px solid var(--green-main);
     border-radius: 0.25rem;
     font-size: 1rem;
     font-weight: 600;
     margin-right: 10px;
+    transition: 0.4s;
 }
 
 header nav .end-nav a .btn-sign:hover {
     cursor: pointer;
     color: rgb(5, 136, 88);
     background-color: rgb(245, 245, 244);
-    box-shadow: 0 0 10px 2px rgba(5, 136, 88, 0.8);
+    scale: 1.02;
 }
 
 header nav .end-nav a .btn-register {
-    background-color: rgb(4, 218, 139); 
+    background-color: var(--green-main);
     padding: 0.5rem 1.5rem;
     border-radius: 0.25rem;
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 header nav .end-nav a .btn-register:hover {
-    background-color: rgb(4, 138, 89);
+    background-color: var(--green-hover);
+    scale: 1.02;
     color: #f1f1f1;
     cursor: pointer;
-    box-shadow: 0 0 10px 2px rgba(4, 106, 69, 0.8);
 }
 
 main {
@@ -171,7 +215,7 @@ main {
     padding: 1rem 3%;
 }
 
-main .hero {
+main #hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,42 +223,92 @@ main .hero {
     margin-top: 1.8rem;
 }
 
-main .hero .hero-content {
+main #hero .hero-content {
     flex: 2 2 0;
 }
 
-main .hero .hero-illustration {
+main #hero .hero-illustration {
     flex: 1 1 0;
 }
 
-main .hero .hero-content h2 {
+main #hero .hero-content h2 {
     font-size: 8rem;
+    color: var(--green-accent);
 }
 
-main .hero .hero-content .btn-mencatat {
+main #hero .hero-content span {
+    color: var(--green-main);
+}
+
+main #hero .hero-content .btn-mencatat {
     margin-top: 8px;
     padding: 1rem 2rem;
     border-radius: 22px;
     font-size: 1rem;
     font-weight: 600;
-    background-color: rgb(4, 218, 139); 
+    background-color: var(--green-main);
     color: #fff;
+    transition: 0.4;
 }
 
-main .hero .hero-content .btn-mencatat:hover {
-    background-color: rgb(4, 138, 89);
-    color: #f1f1f1;
+main #hero .hero-content .btn-mencatat:hover {
+    background-color: var(--green-hover);
+    scale: 1.02;
     cursor: pointer;
-    box-shadow: 0 0 10px 2px rgba(4, 106, 69, 0.8);
+    box-shadow: 0 0 10px 2px var(--green-shadow);
 }
 
-main .hero .hero-content span {
-    color: rgb(4, 218, 139);
-}
-
-main .hero .hero-illustration img {
+main #hero .hero-illustration img {
     width: 100%;
     height: 100%;
+}
+
+main #description {
+    text-align: center;
+    /* border-top: 1px solid red; */
+}
+
+main #description hr {
+    margin-top: 80px;
+}
+
+main #description h6 {
+    color: var(--black-accent);
+    margin-top: 80px;
+    font-size: 0.8rem;
+}
+
+main #description .description-details {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+    text-align: left;
+}
+
+main #description .description-details .description-image {
+    flex: 1 1 0;
+}
+
+main #description .description-details .description-image img {
+    width: 100%;
+    height: auto;
+}
+
+main #description .description-details .description-explanation {
+    flex: 1 1 0;
+    border-top: 1px solid #ccc;
+    padding: 2% 0 0 3rem;
+}
+
+main #description .description-details .description-explanation p {
+    line-height: 2;
+    font-size: 1.2rem;
+}
+
+main #description .description-details .description-explanation p span {
+    color: var(--green-main);
+    font-size: 1.5rem;
 }
 
 .mobile-nav {
@@ -231,7 +325,7 @@ main .hero .hero-illustration img {
     }
 
     header nav .mid-nav {
-        padding: 0.6rem 1rem;
+        padding: 0.8rem 1.2rem;
     }
 
     header nav .mid-nav ul li {
@@ -239,7 +333,7 @@ main .hero .hero-illustration img {
     }
 
     header nav .mid-nav ul li a {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     header nav .end-nav a .btn-sign, header nav .end-nav a .btn-register {
@@ -247,7 +341,7 @@ main .hero .hero-illustration img {
     }
 
     header nav .end-nav a .btn-sign, header nav .end-nav a .btn-register {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     header nav .end-nav a .btn-sign {
@@ -258,18 +352,37 @@ main .hero .hero-illustration img {
         margin-top: 50px;
     }
 
-    main .hero {
+    main #hero {
         column-gap: 0.8rem;
         margin-top: 1.4rem;
     }
 
-    main .hero .hero-content h2 {
-        font-size: 4.5rem;
+    main #hero .hero-content h2 {
+        font-size: 4rem;
     }
 
-    main .hero .hero-content .btn-mencatat {
+    main #hero .hero-content .btn-mencatat {
         padding: 0.8rem 1.5rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    main #description .description-details {
+        column-gap: 3rem;
+    }
+
+    main #description .description-details .description-explanation {
+        max-height: 300px;
+        overflow: scroll;
+        padding-left: 1rem;
+    }
+
+    main #description .description-details .description-explanation p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    main #description .description-details .description-explanation p span {
+        font-size: 1.3rem;
     }
 }
 
@@ -292,26 +405,26 @@ main .hero .hero-illustration img {
         padding: 0 8%;
     }
 
-    main .hero {
+    main #hero {
         flex-direction: column;
     }
 
-    main .hero .hero-content {
+    main #hero .hero-content {
         flex: 1 1 0;
     }
 
-    main .hero .hero-content h2 {
+    main #hero .hero-content h2 {
         font-size: 4.25rem;
         line-height: 0.9;
     }
 
-    main .hero .hero-content .btn-mencatat{
+    main #hero .hero-content .btn-mencatat{
         margin-top: 30px;
         padding: 1.2rem 2.5rem;
         font-size: 1.25rem;
     }
 
-    main .hero .hero-illustration {
+    main #hero .hero-illustration {
         margin-top: 30px;
     }
 
