@@ -10,21 +10,20 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <header>
       <nav>
         <section class="start-nav">
-          <a href="#"><h2 class="montserrat-bold-italic">Racat</h2></a>
+          <a href="#"><h2 class="inter-bold-italic">Racat</h2></a>
         </section>
         <section class="mid-nav">
           <ul>
             <li><a href="#">Beranda</a></li>
             <li><a href="#description">Deskripsi</a></li>
             <li><a href="">Catatan</a></li>
-            <li><a href="">Lokasi</a></li>
           </ul>
         </section>
         <section class="end-nav">
@@ -54,28 +53,26 @@
       </section>
       <!-- Description Section -->
       <section id="description">
-        <hr />
         <h6 class="inter-regular">- Deskripsi -</h6>
         <div class="description-details">
           <figure class="description-image">
             <img src="svg/illustration.svg" alt="Gambar Ilustrasi" />
           </figure>
           <div class="description-explanation">
+            <h3 class="inter-bold">Racat (Rafael Catatan Keuangan)</h3>
             <p class="inter-regular">
-              <span class="inter-bold">Racat (Rafael Catatan Keuangan)</span>
               adalah platform pencatat keuangan online yang dirancang untuk
               kesederhanaan dan kemudahan. Melalui Racat, pengguna dapat
               menambahkan, mengedit, dan memantau catatan transaksi harian tanpa
-              ribet. Tampilan yang ringan membuat Racat nyaman digunakan di
-              berbagai perangkat, mulai dari laptop hingga ponsel.
+              ribet.
             </p>
+            <h3 class="inter-bold">Tujuannya sederhana:</h3>
             <p class="inter-regular">
-              <span class="inter-bold">Tujuannya sederhana:</span>
-              <br />
               Membantu kamu mengenali pola pengeluaran dan mengatur keuangan
               dengan lebih bijak. Racat hadir sebagai teman finansial yang siap
               menemani langkahmu menuju hidup yang lebih terencana.
             </p>
+            <h4 class="inter-bold-italic">Rafael Pransa</h4>
           </div>
         </div>
       </section>
@@ -83,10 +80,16 @@
 
     <section class="mobile-nav">
       <nav>
-        <a href="">
+        <a href="#hero">
           <div class="menu-mobile">
             <i data-feather="home"></i>
             <p>Beranda</p>
+          </div>
+        </a>
+        <a href="#description">
+          <div class="menu-mobile">
+            <i data-feather="home"></i>
+            <p>Deskirpsi</p>
           </div>
         </a>
         <a href="">
@@ -107,6 +110,6 @@
     <script>
       feather.replace();
     </script>
-    <script src="script/app.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>

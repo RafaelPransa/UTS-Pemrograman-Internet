@@ -11,10 +11,8 @@ console.log('adad');
 function moveNavElements () {
     if (window.innerWidth < 768) {
         midNav.style.display = 'none';
-        endNav.style.display = 'none';
     } else {
         midNav.style.display = 'block';
-        endNav.style.display = 'block';
     }
 }
 

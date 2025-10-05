@@ -1,0 +1,37 @@
+.register-page {
+    padding: 4rem 3%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5rem;
+}
+
+.gallery-box-register {
+    padding: 3rem 0;
+    border: 1px solid #ccc;
+}
+
+.card-gallery {
+    min-width: 500px;
+    min-height: 500px;
+    border: 1px solid #ccc;
+}
+
+.register-page .form-register form div p {
+
+    /* Menggunakan Flexbox untuk mensejajarkan garis dan teks */
+       display: flex;
+       align-items: center; /* Menjaga semua elemen (garis dan teks) berada di tengah vertikal */
+       text-align: center;
+       margin: 20px 0; /* Jarak vertikal di atas dan bawah separator */
+       color: #6e6e6e; /* Warna teks 'Or' */
+       font-size: 0.9rem;
+}
+
+
+.register-page .form-register form div p::after {
+    content: ''; /* Wajib diisi (walaupun kosong) */
+    flex-grow: 1; /* Garis akan mengisi semua ruang kosong yang tersedia */
+    height: 1px;
+    background-color: #dcdcdc; /* Warna garis yang lembut */
+    margin-right: 15px; /* Jarak antara garis dan teks 'Or' */
+}
