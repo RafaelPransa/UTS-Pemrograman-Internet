@@ -328,7 +328,7 @@ main #description .description-details .description-explanation h4 {
 }
 
 @media (max-width: 992px) {
-    header, main {
+    header {
         padding: 1rem 6%;
     }
 
@@ -367,6 +367,7 @@ main #description .description-details .description-explanation h4 {
     main #hero {
         column-gap: 2rem;
         margin-top: 1.4rem;
+        padding: 1rem 6%;
     }
 
     main #hero .hero-content h2 {
@@ -376,6 +377,15 @@ main #description .description-details .description-explanation h4 {
     main #hero .hero-content .btn-mencatat {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    main #description {
+        padding: 1rem 6% 6rem;
+    }
+
+    main #description h6 {
+        margin-top: 10px;
     }
 
     main #description .description-details {
