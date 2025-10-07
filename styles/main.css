@@ -23,11 +23,12 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-/* Batas Reset */
 
-body {
-	line-height: 1;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 180px;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -40,286 +41,279 @@ button {
     border: none;
 }
 
-/* Batas Reset CSS */
+/* Batas Reset */
 
-/* Font */
-.bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* Fonts style */
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-Thin.woff2') format('woff2'),
+        url('./fonts/Poppins-Thin.woff') format('woff'),
+        url('./fonts/Poppins-Thin.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
-.montserrat-extraligth {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-Regular.woff2') format('woff2'),
+        url('./fonts/Poppins-Regular.woff') format('woff'),
+        url('./fonts/Poppins-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
-.montserrat-regular {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-SemiBold.woff2') format('woff2'),
+        url('./fonts/Poppins-SemiBold.woff') format('woff'),
+        url('./fonts/Poppins-SemiBold.ttf') format('ttf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
-.montserrat-semibold {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-Bold.woff2') format('woff2'),
+        url('./fonts/Poppins-Bold.woff') format('woff'),
+        url('./fonts/Poppins-Bold.ttf') format('ttf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
-
-.montserrat-bold {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.montserrat-bold-italic {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* Font Inter */
-
-.inter-regular {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.inter-bold {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.inter-bold-italic {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* Batas font */
+/* Batas Fonts Style */
 
 /* Variabel CSS */
 :root {
-    --black-main: #6e6e6e;
-    --black-accent: #a0a0a0;
-    --green-main: #00E38C;
-    --green-accent: #73ecbe;
-    --green-hover: #00bb73;;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* sesuaikan dengan tinggi navbar kamu */
+    --baby-blue: #C8F4FA;
+    --soft-lime: #E4FED0;
+    --main-color: #333333;
+    --green-primary: #69E00E;
+    --green-hover: #51ac0b;
 }
 
 body {
-    color: var(--black-main);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+	line-height: 1;
+    color: var(--main-color);
+    height: 100000px;
 }
 
-header {
-    padding: 1rem 3%;
+.header-hero-content-wrapper {
+    padding: 2rem 7%;
+    background: linear-gradient(to bottom, var(--baby-blue), var(--green-primary));
+}
+
+.header-hero-content-wrapper header {
     background-color: #fff;
-    border-bottom: 1px solid #F2F2F2;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    border-radius: 37px;
 }
 
-header nav {
-    /* background-color: aqua; */
+
+.header-hero-content-wrapper header nav {
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.8rem 4rem;
+    border-radius: 37px;
+    background-color: rgba(255,255,255, 0.25);
+    transition: all 0.3s ease-in-out;
 }
 
-header nav .start-nav h2 {
+.nav-scroll {
+    position: fixed;
+    top: 0.4rem;
+    left: 7%;
+    right: 7%;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-hero-content-wrapper header nav .start-nav h2 {
     font-size: 1.5rem;
-    color: var(--green-main);
+    font-weight: 600;
+    font-style: italic;
+
 }
 
-header nav .mid-nav {
+.header-hero-content-wrapper header nav .mid-nav {
     padding: 0.8rem 1.3rem;
     border-radius: 24px;
     transition: 0.3s;
 }
 
-header nav .mid-nav:hover {
-    background: var(--green-main);
-}
-
-header nav .mid-nav ul li {
+.header-hero-content-wrapper header nav .mid-nav ul li {
     display: inline-block;
-    margin: 0 0.7rem;
+    margin: 0 0.8rem;
 }
 
-header nav .mid-nav ul li a {
-    font-family: "Inter", sans-serif;
+.header-hero-content-wrapper header nav .mid-nav ul li a {
     font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--black-main);
+    font-size: 0.9rem;
     transition: 0.4s;
 }
 
-header nav .mid-nav:hover a {
-    color: #fff;
+.header-hero-content-wrapper header nav .mid-nav ul li:hover a{
+    color: var(--green-primary);
 }
 
-header nav .mid-nav ul li:hover a{
-    color: rgb(28, 25, 23);
-}
-
-header nav .end-nav a .btn-sign {
+.header-hero-content-wrapper header nav .end-nav a .btn-sign {
+    padding: 0.5rem 1.3rem;
     background-color: #fff;
-    background-color: var(--green-main);
-    padding: 0.5rem 1.5rem;
-    color: #fff;
-    border-radius: 0.25rem;
+    color: var(--green-primary);
+    border: 1px solid var(--green-primary);
+    border-radius: 0.4rem;
     font-size: 1rem;
     font-weight: 600;
     margin-right: 10px;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
-header nav .end-nav a .btn-sign:hover {
+.header-hero-content-wrapper header nav .end-nav a .btn-sign:hover {
     cursor: pointer;
-    color: #f1f1f1;
-    background-color: var(--green-hover);
-    scale: 1.02;
+    color: var(--green-hover);
+    border: 1px solid var(--green-hover);
+    scale: 1.025;
 }
 
-header nav .end-nav a .btn-register {
+.header-hero-content-wrapper header nav .end-nav a .btn-register {
     border: 1px solid var(--green-main);
-    color: rgb(4, 170, 109);
+    background-color: var(--green-primary);
+    color: #fff;
     padding: 0.5rem 1.5rem;
-    border-radius: 0.25rem;
+    border-radius: 0.4rem;
     font-size: 1rem;
     font-weight: 600;
-    background-color: rgb(255, 255, 255);
     transition: 0.4s;
 }
 
-header nav .end-nav a .btn-register:hover {
+.header-hero-content-wrapper header nav .end-nav a .btn-register:hover {
     background-color: var(--green-hover);
     scale: 1.02;
-    background-color: rgb(245, 245, 244);
-    color: rgb(5, 136, 88);
+    background-color: var(--green-hover);
     cursor: pointer;
 }
 
-main {
-    margin-top: 100px;
-    
-}
-
-main #hero {
+.header-hero-content-wrapper #hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 5rem;
-    margin-top: 1.8rem;
-    padding: 1rem 3%;
+    margin-top: 2rem;
+    padding: 2rem 4rem;
+    background-color: #fff;
+    border-radius: 30px;
 }
 
-main #hero .hero-content {
-    flex: 1 1 0;
+.header-hero-content-wrapper #hero .hero-content {
+    flex: 2 0 60%;
 }
 
-main #hero .hero-illustration {
-    flex: 1 1 0;
+.header-hero-content-wrapper #hero .hero-illustration {
+    flex: 0 1 auto;
 }
 
-main #hero .hero-content h2 {
-    font-size: 8rem;
-    color: var(--green-accent);
+.header-hero-content-wrapper #hero .hero-content h2 {
+    font-size: 3.4rem;
+    color: var(--black-main);
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-main #hero .hero-content span {
-    color: var(--green-main);
+.header-hero-content-wrapper #hero .hero-content span {
+    color: var(--green-primary);
 }
 
-main #hero .hero-content .btn-mencatat {
-    margin-top: 8px;
+.header-hero-content-wrapper #hero .hero-content p {
+    margin-top: 15px;
+    width: 19rem;
+    line-height: 1.5;
+}
+
+.header-hero-content-wrapper #hero .hero-content .btn-mencatat {
+    margin-top: 60px;
     padding: 1rem 2rem;
     border-radius: 22px;
     font-size: 1rem;
     font-weight: 600;
-    background-color: var(--green-main);
+    background-color: var(--green-primary);
     color: #fff;
     transition: 0.4;
 }
 
-main #hero .hero-content .btn-mencatat:hover {
+.header-hero-content-wrapper #hero .hero-content .btn-mencatat:hover {
     background-color: var(--green-hover);
     scale: 1.02;
     cursor: pointer;
 }
 
-main #hero .hero-illustration img {
+.header-hero-content-wrapper #hero .hero-illustration img {
     width: 100%;
     height: 100%;
 }
 
-main #description {
+.description-content-wrapper {
+    padding: 0 7% 2.3rem;
+    background-color: #fff;
     text-align: center;
-    margin-top: 80px;
-    padding: 3rem 3% 6rem;
+    color: #ccc;
+}
+
+.description-content-wrapper #description {
+    text-align: center;
+    /* margin-top: 3rem; */
+    padding: 0 4rem;
     background-color: var(--green-accent);
 }
 
-main #description h6 {
-    color: #fff;
-    font-size: 0.8rem;
-    
+.description-content-wrapper #description h6 {
+    font-weight: 600;
+    margin-top: 3rem;
 }
 
-main #description .description-details {
-    margin-top: 80px;
+.description-content-wrapper #description .description-details {
     display: flex;
     justify-content: space-between;
     column-gap: 5rem;
     text-align: left;
+    margin-top: 3rem;
 }
 
-main #description .description-details .description-image {
-    flex: 1 1 0;
+.description-content-wrapper #description .description-details .description-image {
+    flex: 1 1 50%;
 }
 
-main #description .description-details .description-image img {
+.description-content-wrapper #description .description-details .description-image img {
     width: 100%;
     height: auto;
 }
 
-main #description .description-details .description-explanation {
-    flex: 1 1 0;
+.description-content-wrapper #description .description-details .description-explanation {
+    flex: 1 1 50%;
     background-color: #fff;
+    border: 1px solid;
     border-radius: 16px;
-    padding: 3rem;
+    padding: 2rem;
     line-height: 2;
     transition: 0.3s;
 }
 
-main #description .description-details .description-explanation h3 {
-    color: var(--green-hover);
-    font-size: 1.5rem;
+.description-content-wrapper #description .description-details .description-explanation h3 {
+    color: var(--green-primary);
+    font-weight: 600;
+    font-size: 2rem;
 }
 
-main #description .description-details .description-explanation p {
+.description-content-wrapper #description .description-details .description-explanation p {
     font-size: 1.2rem;
 }
 
-main #description .description-details .description-explanation h4 {
+.description-content-wrapper #description .description-details .description-explanation h4 {
     margin-top: 2rem;
 }
 

@@ -1,20 +1,29 @@
-const header = document.getElementsByTagName('header');
-const nav = document.querySelector('header nav');
-const startNav = document.querySelector('header nav .start-nav');
-const midNav = document.querySelector('header nav .mid-nav');
-const endNav = document.querySelector('header nav .end-nav');
-const mobileNav = document.querySelector('main .mobile-nav');
-
-console.log('adad');
-
-// Memindahkan ke parent yang lain
-function moveNavElements () {
-    if (window.innerWidth < 768) {
-        midNav.style.display = 'none';
-    } else {
-        midNav.style.display = 'block';
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const header = document.querySelector('.header-hero-content-wrapper header');
+    const nav = document.querySelector('.header-hero-content-wrapper header nav');
+    const wrapperHeader = document.querySelector('.header-hero-content-wrapper');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+            if (window.innerWidth > 992) {
+                nav.classList.add('nav-transparent');
+                nav.classList.add('nav-scroll');
+            }
+        } else {
+            nav.classList.remove('nav-scroll');
+        }
+    });
+    
+    function checkNavStatus() {
+        const isNavScrolled = nav.classList.contains('nav-scroll');
+        if (isNavScrolled) {
+            if (window.innerWidth > 992) {
+                wrapperHeader.style.paddingTop = '85px';
+            }
+        } else {
+            wrapperHeader.style.paddingTop = '20px';
+        }
     }
-}
-
-document.addEventListener('DOMContentLoaded', moveNavElements);
-window.addEventListener('resize', moveNavElements);
+    window.addEventListener('scroll', checkNavStatus);
+    checkNavStatus();
+});
