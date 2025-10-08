@@ -3,14 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header-hero-content-wrapper header');
     const nav = document.querySelector('.header-hero-content-wrapper header nav');
     const wrapperHeader = document.querySelector('.header-hero-content-wrapper');
+    const menuNavA = document.querySelectorAll('.header-hero-content-wrapper header nav .mid-nav ul li a');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 10) {
             if (window.innerWidth > 992) {
                 nav.classList.add('nav-transparent');
                 nav.classList.add('nav-scroll');
+                menuNavA.forEach(menus => {
+                    menus.classList.add('color-a-scroll');
+                });
             }
         } else {
             nav.classList.remove('nav-scroll');
+            menuNavA.forEach(menus => {
+                    menus.classList.remove('color-a-scroll');
+                });
         }
     });
     
@@ -26,4 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', checkNavStatus);
     checkNavStatus();
+
+    
 });
