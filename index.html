@@ -3,80 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rafael Analisa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <title>Rafael Catatan Keuangan</title>
     <link rel="stylesheet" href="styles/main.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <section class="start-nav">
-          <a href="#"><h2 class="inter-bold-italic">Racat</h2></a>
-        </section>
-        <section class="mid-nav">
-          <ul>
-            <li><a href="#"></a></li>
-            <li><a href="#description">Deskripsi</a></li>
-            <li><a href="">Catatan</a></li>
-          </ul>
-        </section>
-        <section class="end-nav">
-          <a href="">
-            <button type="button" class="btn-sign">Masuk</button>
-          </a>
-          <a href="">
-            <button type="button" class="btn-register">Daftar</button>
-          </a>
-        </section>
-      </nav>
-    </header>
-    <main>
+    <div class="header-hero-content-wrapper">
+      <header>
+        <nav>
+          <section class="start-nav">
+            <a href="#"><h2>Racat</h2></a>
+          </section>
+          <section class="mid-nav">
+            <ul>
+              <li><a href="#hero">Beranda</a></li>
+              <li><a href="#description">Deskripsi</a></li>
+              <li><a href="#goals">Tujuan</a></li>
+              <li><a href="">Catatan</a></li>
+            </ul>
+          </section>
+          <section class="end-nav">
+            <a href="">
+              <button type="button" class="btn-sign">Masuk</button>
+            </a>
+            <a href="">
+              <button type="button" class="btn-register">Daftar</button>
+            </a>
+          </section>
+        </nav>
+      </header>
+
       <!-- Hero Section -->
       <section id="hero">
         <div class="hero-content">
-          <h2 class="bebas-neue-regular">
-            CATAT, <span>KENDALIKAN,</span> WUJUDKAN TUJUANMU
-          </h2>
+          <h2>CATAT, <span>KENDALIKAN,</span> WUJUDKAN TUJUANMU</h2>
+          <p>"Aturlah keuangan anda agar finansial</p>
+          <p>anda tertata dengan rapih."</p>
           <a href="">
             <button type="button" class="btn-mencatat">Mulai Mencatat</button>
           </a>
         </div>
         <figure class="hero-illustration">
-          <img src="svg/illustration.svg" alt="Gambar Ilustrasi" />
+          <img src="svg/hero-illustration.svg" alt="Gambar Ilustrasi" />
         </figure>
       </section>
+
       <!-- Description Section -->
+    </div>
+    <div class="description-content-wrapper">
       <section id="description">
-        <h6 class="inter-regular">- Deskripsi -</h6>
+        <h6>-Deskripsi-</h6>
         <div class="description-details">
           <figure class="description-image">
-            <img src="svg/illustration.svg" alt="Gambar Ilustrasi" />
+            <img
+              src="svg/description-illustration.svg"
+              alt="Gambar Ilustrasi"
+            />
           </figure>
           <div class="description-explanation">
-            <h3 class="inter-bold">Racat (Rafael Catatan Keuangan)</h3>
-            <p class="inter-regular">
+            <h3>Penjelasan singkat</h3>
+            <p>
               adalah platform pencatat keuangan online yang dirancang untuk
               kesederhanaan dan kemudahan. Melalui Racat, pengguna dapat
               menambahkan, mengedit, dan memantau catatan transaksi harian tanpa
               ribet.
             </p>
-            <h3 class="inter-bold">Tujuannya sederhana:</h3>
-            <p class="inter-regular">
-              Membantu kamu mengenali pola pengeluaran dan mengatur keuangan
-              dengan lebih bijak. Racat hadir sebagai teman finansial yang siap
-              menemani langkahmu menuju hidup yang lebih terencana.
-            </p>
-            <h4 class="inter-bold-italic">Rafael Pransa</h4>
+            <h4>Rafael Pransa</h4>
           </div>
         </div>
       </section>
-    </main>
+    </div>
+
+    <!-- Goals Section -->
+    <div class="goals-wrapper">
+      <section id="goals">
+        <h6>-Tujuan-</h6>
+        <div class="goals-details">
+          <div class="card-goal">
+            <div class="card-contents">
+              <figure>
+                <img src="svg/goals-illustration-1.svg" alt="Tujuan Pertama" />
+              </figure>
+              <div class="goal-card-explanation">
+                <h4>1. Membangun Kesadaran Finansial</h4>
+                <p>
+                  Racat bertujuan sebagai cermin keuangan pribadi Anda. Dengan
+                  mencatat setiap transaksi, Anda dapat melihat ke mana uang
+                  Anda benar-benar mengalir, membantu Anda mengidentifikasi
+                  kebiasaan boros dan pola pengeluaran yang tidak sehat.
+                </p>
+              </div>
+            </div>
+            <div class="beauty-card"></div>
+          </div>
+          <div class="card-goal">
+            <div class="card-contents">
+              <figure>
+                <img src="svg/goals-illustration-2.svg" alt="Tujuan Pertama" />
+              </figure>
+              <div class="goal-card-explanation">
+                <h4>2. Memudahkan Penganggaran</h4>
+                <p>
+                  Aplikasi ini menyederhanakan proses budgeting. Dengan data
+                  yang terekam rapi per hari, bulan, dan tahun, Anda dapat
+                  dengan mudah mengalokasikan dana untuk kebutuhan (wajib) dan
+                  keinginan (fleksibel).
+                </p>
+              </div>
+            </div>
+            <div class="beauty-card"></div>
+          </div>
+          <div class="card-goal">
+            <div class="card-contents">
+              <figure>
+                <img src="svg/goals-illustration-3.svg" alt="Tujuan Pertama" />
+              </figure>
+              <div class="goal-card-explanation">
+                <h4>3. Akses Data Cepat dan Akurat</h4>
+                <p>
+                  ami menghilangkan kerumitan mencatat manual. Racat menawarkan
+                  akses instan ke seluruh riwayat keuangan Anda di ujung jari.
+                  Baik itu laporan pengeluaran harian minggu lalu atau total
+                  belanja tahunan.
+                </p>
+              </div>
+            </div>
+            <div class="beauty-card"></div>
+          </div>
+          <div class="card-goal">
+            <div class="card-contents">
+              <figure>
+                <img src="svg/goals-illustration-4.svg" alt="Tujuan Pertama" />
+              </figure>
+              <div class="goal-card-explanation">
+                <h4>4. Mendorong Disiplin Jangka Panjang</h4>
+                <p>
+                  Lebih dari sekadar alat pencatat, Racat adalah teman yang
+                  mendorong kebiasaan baik. Dengan transparansi data, Anda
+                  termotivasi untuk mencapai tujuan keuangan besar Anda—entah
+                  itu bebas utang, membeli aset, atau menabung untuk liburan.
+                </p>
+              </div>
+            </div>
+            <div class="beauty-card"></div>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <section class="mobile-nav">
       <nav>
