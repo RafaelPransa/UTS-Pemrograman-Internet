@@ -121,7 +121,7 @@ body {
     align-items: center;
     padding: 0.8rem 4rem;
     border-radius: 37px;
-    background-color: rgba(255, 255, 255,  0.25s);
+    background-color: rgba(255, 255, 255,  0.2);
     transition: all 0.3s ease-in-out;
 }
 
@@ -130,7 +130,7 @@ body {
     top: 0.4rem;
     left: 7%;
     right: 7%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(7px);
     z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
@@ -140,13 +140,6 @@ body {
     font-weight: 600;
     font-style: italic;
     color: var(--green-primary);
-
-}
-
-.header-hero-content-wrapper header nav .mid-nav {
-    padding: 1rem 1.3rem;
-    border-radius: 24px;
-    transition: 0.3s;
 }
 
 .header-hero-content-wrapper header nav .mid-nav ul li {
@@ -215,7 +208,6 @@ body {
     padding: 4rem;
     background-color: #fff;
     border-radius: 30px;
-    overflow: hidden;
 }
 
 .header-hero-content-wrapper #hero .hero-content {
@@ -240,7 +232,7 @@ body {
 .header-hero-content-wrapper #hero .hero-content p {
     margin-top: 2rem;
     padding: 0.1rem 1rem;
-    width: 20rem;
+    width: fit-content;
     line-height: 1.4;
     font-size: 0.8rem;
     position: relative;
@@ -410,7 +402,7 @@ body {
 
 .goals-wrapper #goals .goals-details .card-goal .card-contents figure {
     flex: 1 1 0;
-    max-height: 150px;
+    max-height: 100px;
     background-color: var(--baby-blue);
     border-radius: 8px;
     padding: 1rem;
@@ -453,180 +445,351 @@ body {
 }
 
 @media (max-width: 992px) {
-    header {
-        padding: 1rem 6%;
+    /* pembungkus header dan hero */
+    .header-hero-content-wrapper {
+        padding: 2rem 8%;
     }
 
-    header nav .start-nav h2 {
-        font-size: 1.25rem;
+    /* header-nav */
+
+    .header-hero-content-wrapper header nav {
+        padding: 0.6rem 3rem;
     }
 
-    header nav .mid-nav {
-        padding: 0.8rem 1.2rem;
+    .nav-scroll {
+        left: 8%;
+        right: 8%;
+        backdrop-filter: blur(8px);
     }
 
-    header nav .mid-nav ul li {
-        margin: 0 0.5rem;
+    .header-hero-content-wrapper header nav .start-nav h2 {
+    font-size: 1.2rem;
     }
 
-    header nav .mid-nav ul li a {
-        font-size: 0.9rem;
+    .header-hero-content-wrapper header nav .mid-nav ul li {
+        margin: 0 0.6rem;
     }
 
-    header nav .end-nav a .btn-sign, header nav .end-nav a .btn-register {
-        padding: 0.4rem 1.2rem;
+    .header-hero-content-wrapper header nav .mid-nav ul li a {
+        font-size: 0.7rem;
     }
 
-    header nav .end-nav a .btn-sign, header nav .end-nav a .btn-register {
-        font-size: 0.9rem;
+    .header-hero-content-wrapper header nav .end-nav a .btn-sign, .header-hero-content-wrapper header nav .end-nav a .btn-register {
+        padding: 0.3rem 1.1rem;
+        font-size: 0.8rem;
+        border-radius: 0.3rem;
     }
 
-    header nav .end-nav a .btn-sign {
-        margin-right: 7px;
+    .header-hero-content-wrapper #hero {
+        column-gap: 3rem;
+        margin-top: 2rem;
+        padding: 3rem;
+        border-radius: 25px;
     }
 
-    main {
-        margin-top: 50px;
+    /* hero */
+    .header-hero-content-wrapper #hero .hero-content h2 {
+        font-size: 1.5rem;
     }
 
-    main #hero {
-        column-gap: 2rem;
-        margin-top: 1.4rem;
-        padding: 1rem 6%;
+    .header-hero-content-wrapper #hero .hero-content h2 span {
+        font-size: 1.8rem;
+        padding: 0 0.8rem;
     }
 
-    main #hero .hero-content h2 {
-        font-size: 4rem;
+    .header-hero-content-wrapper #hero .hero-content p {
+        margin-top: 1.8rem;
+        padding: 0.1rem 0.8rem;
+        font-size: 0.6rem;
     }
 
-    main #hero .hero-content .btn-mencatat {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-        margin-top: 1rem;
+    .header-hero-content-wrapper #hero .hero-content .btn-mencatat {
+        margin-top: 2.5rem;
+        padding: 0.8rem 1.8rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
     }
 
-    main #description {
-        padding: 1rem 6% 6rem;
+    /* description */
+    .description-content-wrapper {
+        padding: 0 8% 4rem;
     }
 
-    main #description h6 {
-        margin-top: 10px;
+    .description-content-wrapper #description {
+        padding: 0 3rem;
     }
 
-    main #description .description-details {
-        column-gap: 4rem;
+    .description-content-wrapper #description h6 {
+        font-size: 0.8rem;
+        margin-top: 2rem;
     }
 
-    main #description .description-details .description-explanation {
-        padding: 2rem;
-        max-height: 300px;
-        overflow: scroll;
-        line-height: 1.7;
+    .description-content-wrapper #description .description-details {
+        column-gap: 4;
+        margin-top: 2rem;
     }
 
-    main #description .description-details .description-explanation h3 {
-        font-size: 1.2rem;
+    .description-content-wrapper #description .description-details .description-explanation {
+        max-height: 250px;
+        padding: 1.5rem;
+        line-height: 1.5;
+        border-radius: 12px;
     }
 
-    main #description .description-details .description-explanation p {
+    .description-content-wrapper #description .description-details .description-explanation h3 {
         font-size: 1rem;
     }
 
-    main #description .description-details .description-explanation h4 {
-        margin-top: 1.2rem;
+    .description-content-wrapper #description .description-details .description-explanation p {
+        font-size: 0.8rem;
+    }
+
+    .description-content-wrapper #description .description-details .description-explanation h4 {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .goals-wrapper {
+        padding: 2rem 8%;
+    }
+
+    .goals-wrapper #goals {
+        padding: 1.5rem 3rem;
+    }
+
+    .goals-wrapper #goals h6 {
+        font-size: 0.8rem;
+    }
+
+    .goals-wrapper #goals .goals-details {
+        margin: 1.5rem 0;
+        column-gap: 0.8rem;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal {
+        flex-direction: column-reverse;
+        margin: 1rem;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .beauty-card {
+        max-height: 5px;
+        max-width: 60px;
+        padding: 5px 5px;
+        top: 0;
+        left: 40px;
+        border-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: linear-gradient(to right, var(--baby-blue), var(--soft-lime), var(--green-primary));
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .card-contents:hover ~ .beauty-card {
+        top: 0;
+        left: 100px;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .card-contents {
+        max-width: 230px;
+        padding: 1rem;
+        min-height: 350px;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .card-contents figure {
+        max-height: 90px;
+        padding: 0.8rem;
+        overflow: hidden;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .card-contents figure img {
+        transition: 0.3s;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .card-contents:hover figure img {
+        scale: 1.2;
+    }
+    
+    .goals-wrapper #goals .goals-details .card-goal .card-contents .goal-card-explanation h4 {
+        font-size: 1rem;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal .card-contents .goal-card-explanation p {
+        font-size: 14px;
     }
 }
 
-@media (max-width: 768px) {
-    header{
-        position: static;
-        padding: 0.9rem 8%;
+@media (max-width: 430px) {
+
+    /* pembungkus header dan hero */
+    .header-hero-content-wrapper {
+        padding: 1rem 6% 3rem;
     }
 
-    header nav .start-nav h2 {
-        font-size: 1.85rem;
+    /* header */
+    .header-hero-content-wrapper header {
+        background-color: transparent;
     }
 
-    header nav .end-nav .btn-register {
+    .header-hero-content-wrapper header nav {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .header-hero-content-wrapper header nav .start-nav a h2 {
+        font-size: 2rem;
+    }
+
+    .header-hero-content-wrapper header nav .mid-nav {
         display: none;
     }
-    
-    main {
-        margin-top: 75px;
-        padding: 0 8%;
+
+    .header-hero-content-wrapper header nav .end-nav a .btn-sign {
+        padding: 8px 25px;
+        margin: 0;
     }
 
-    main #hero {
+    .header-hero-content-wrapper header nav .end-nav .btn-register {
+        display: none;
+    }
+
+    /* hero */
+
+    .header-hero-content-wrapper #hero {
+        padding: 1.5rem 2rem;
+        border-radius: 15px;
         flex-direction: column;
+        row-gap: 1rem;
     }
 
-    main #hero .hero-content {
+    .header-hero-content-wrapper #hero .hero-content {
         flex: 1 1 0;
     }
 
-    main #hero .hero-content h2 {
-        font-size: 4.25rem;
-        line-height: 0.9;
+    .header-hero-content-wrapper #hero .hero-content h2 {
+        font-size: 2rem;
+        line-height: 1.2;
     }
 
-    main #hero .hero-content .btn-mencatat{
-        margin-top: 30px;
-        padding: 1.2rem 2.5rem;
-        font-size: 1.25rem;
+    .header-hero-content-wrapper #hero .hero-content h2 span {
+        font-size: 2.3rem;
+        padding: 0 8px;
     }
 
-    main #hero .hero-illustration {
-        margin-top: 30px;
+    .header-hero-content-wrapper #hero .hero-content p {
+        margin-top: 1rem;
+        line-height: 1;
+        font-size: 0.8rem;
     }
 
-    main #description .description-details {
+    .header-hero-content-wrapper #hero .hero-content a .btn-mencatat {
+        margin-top: 2rem;
+        padding: 1rem 1.5rem;
+        border-radius: 24px;
+    }
+
+    .description-content-wrapper {
+        padding: 0 6% 3rem;
+    }
+
+    .description-content-wrapper #description {
+        padding: 0 2rem;
+    }
+
+    .description-content-wrapper #description .description-details {
         flex-direction: column;
         row-gap: 2rem;
     }
 
-    main #description .description-details .description-explanation {
-        overflow: visible;
-        max-height: max-content;
+    /* tujuan */
+    .goals-wrapper {
+        padding: 2rem 6%;
     }
 
-    main #description .description-details .description-explanation h3 {
-        font-size: 1rem;
-    }
-
-    main #description .description-details .description-explanation h3:last-of-type {
-        margin-top: 0.8rem;
-    }
-
-    main #description .description-details .description-explanation p {
-        font-size: 0.9rem;
-    }
-
-    main #description .description-details .description-explanation h4 {
-        font-size: 0.9rem;
-    }
-
-    .mobile-nav {
-        display: block;
-        padding: 1rem 8% 1.5rem;
-        background-color: #fff;
-        border-top: 1px solid #79a47d;;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    .mobile-nav nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        column-gap: 3rem;
+    .goals-wrapper #goals {
+        padding: 1rem 1rem;
         text-align: center;
     }
 
-    .mobile-nav nav a {
-        max-width: 65px;
+    .goals-wrapper #goals .goals-details {
+        flex-direction: column;
+        margin-top: 1rem;
     }
 
-}
+     .goals-wrapper #goals .goals-details .card-goal {
+        flex-direction: row;
+        column-gap: 0;
+     }
+     
+     .goals-wrapper #goals .goals-details .card-goal .beauty-card {
+        min-height: 0.1px;
+        min-width: 1px;
+        top: -4px;
+        left: 0;
+        border-radius: 50px;
+        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
+     }
 
+      .goals-wrapper #goals .goals-details .card-goal .card-contents:hover + .beauty-card {
+        min-height: 100px;
+        border-radius: 0;
+        border-top-right-radius: 42px;
+        border-bottom-right-radius: 42px;
+        top: 20px;
+        left: 0;
+    }
+
+     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(2) .beauty-card {
+        min-height: 100px;
+        min-width: 1px;
+        top: 30px;
+        left: 0;
+        border-radius: 0;
+        border-top-right-radius: 42px;
+        border-bottom-right-radius: 42px;   
+        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
+     }
+
+     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(2):hover .beauty-card {
+        min-height: 100px;
+        top: 80px;
+        left: 0;
+    }
+
+    .goals-wrapper #goals .goals-details .card-goal:nth-of-type(3) .beauty-card {
+        min-height: 100px;
+        min-width: 1px;
+        top: 130px;
+        left: 0;
+        border-radius: 0;
+        border-top-right-radius: 42px;
+        border-bottom-right-radius: 42px;   
+        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
+     }
+
+     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(3):hover .beauty-card {
+        top: 180px;
+        left: 0;
+    }
+    
+    .goals-wrapper #goals .goals-details .card-goal:last-of-type .beauty-card {
+        min-height: 100px;
+        min-width: 1px;
+        top: 180px;
+        left: 0;
+        border-radius: 0;
+        border-top-right-radius: 42px;
+        border-bottom-right-radius: 42px;   
+        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
+     }
+
+     .goals-wrapper #goals .goals-details .card-goal:last-of-type:hover .beauty-card {
+        top: 250px;
+        left: 0;
+    }
+    
+
+     .goals-wrapper #goals .goals-details .card-goal .card-contents {
+        max-width: max-content;
+     }
+}

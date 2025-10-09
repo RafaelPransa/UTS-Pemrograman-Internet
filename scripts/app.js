@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuNavA = document.querySelectorAll('.header-hero-content-wrapper header nav .mid-nav ul li a');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 10) {
-            if (window.innerWidth > 992) {
+            if (window.innerWidth > 430) {
                 nav.classList.add('nav-transparent');
                 nav.classList.add('nav-scroll');
                 menuNavA.forEach(menus => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkNavStatus() {
         const isNavScrolled = nav.classList.contains('nav-scroll');
         if (isNavScrolled) {
-            if (window.innerWidth > 992) {
+            if (window.innerWidth > 430) {
                 wrapperHeader.style.paddingTop = '85px';
             }
         } else {
