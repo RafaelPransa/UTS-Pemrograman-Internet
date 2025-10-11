@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rafael Catatan Keuangan</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
-    <div class="header-hero-content-wrapper">
+    <div class="header-hero-content-wrapper" id="beranda">
       <header>
         <nav>
           <section class="start-nav">
@@ -16,7 +17,7 @@
           </section>
           <section class="mid-nav">
             <ul>
-              <li><a href="#hero">Beranda</a></li>
+              <li><a href="#beranda">Beranda</a></li>
               <li><a href="#description">Deskripsi</a></li>
               <li><a href="#goals">Tujuan</a></li>
               <li><a href="">Catatan</a></li>
@@ -28,6 +29,9 @@
             </a>
             <a href="">
               <button type="button" class="btn-register">Daftar</button>
+            </a>
+            <a href="">
+              <i data-feather="user"></i>
             </a>
           </section>
         </nav>
@@ -63,10 +67,10 @@
           <div class="description-explanation">
             <h3>Penjelasan singkat</h3>
             <p>
-              adalah platform pencatat keuangan online yang dirancang untuk
-              kesederhanaan dan kemudahan. Melalui Racat, pengguna dapat
-              menambahkan, mengedit, dan memantau catatan transaksi harian tanpa
-              ribet.
+              Racat(Rafael catatan keuangan) adalah platform pencatat keuangan
+              online yang dirancang untuk kesederhanaan dan kemudahan. Melalui
+              Racat, pengguna dapat menambahkan, mengedit, dan memantau catatan
+              transaksi harian tanpa ribet.
             </p>
             <h4>Rafael Pransa</h4>
           </div>
@@ -151,9 +155,9 @@
       </section>
     </div>
 
-    <section class="mobile-nav">
+    <section class="bottom-mobile-nav">
       <nav>
-        <a href="#hero">
+        <a href="#beranda">
           <div class="menu-mobile">
             <i data-feather="home"></i>
             <p>Beranda</p>
@@ -161,20 +165,20 @@
         </a>
         <a href="#description">
           <div class="menu-mobile">
-            <i data-feather="home"></i>
-            <p>Deskirpsi</p>
+            <i data-feather="book"></i>
+            <p>Deskripsi</p>
           </div>
         </a>
-        <a href="">
+        <a href="#goals">
           <div class="menu-mobile">
-            <i data-feather="dollar-sign"></i>
+            <i data-feather="target"></i>
+            <p>Tujuan</p>
+          </div>
+        </a>
+        <a href="#catatan">
+          <div class="menu-mobile">
+            <i data-feather="file-text"></i>
             <p>Catatan</p>
-          </div>
-        </a>
-        <a href="">
-          <div class="menu-mobile">
-            <i data-feather="user"></i>
-            <p>Profile</p>
           </div>
         </a>
       </nav>
@@ -183,6 +187,10 @@
     <script>
       feather.replace();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
     <script src="scripts/app.js"></script>
   </body>
 </html>

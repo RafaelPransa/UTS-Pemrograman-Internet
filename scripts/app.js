@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', function() {
         if (window.scrollY > 10) {
             if (window.innerWidth > 430) {
-                nav.classList.add('nav-transparent');
-                nav.classList.add('nav-scroll');
+                header.classList.add('nav-transparent');
+                header.classList.add('nav-scroll');
                 menuNavA.forEach(menus => {
                     menus.classList.add('color-a-scroll');
                 });
             }
         } else {
-            nav.classList.remove('nav-scroll');
+            header.classList.remove('nav-scroll');
             menuNavA.forEach(menus => {
                     menus.classList.remove('color-a-scroll');
                 });
@@ -34,5 +34,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', checkNavStatus);
     checkNavStatus();
 
+    // GSAP
+    gsap.fromTo('body header', {
+        y: -200, opacity: 0
+    }, { 
+        y: 0, opacity: 1, duration: 1
+    });
     
+    gsap.fromTo('body .header-hero-content-wrapper #hero', {
+        y: 200, opacity: 0
+    }, {
+        y: 0, opacity: 1, duration: 1
+    });
+
+    gsap.fromTo('body .header-hero-content-wrapper #hero .hero-content', {
+        x: -200, opacity: 0
+    }, {
+        x: 0, opacity: 1, delay: 1
+    });
+    gsap.fromTo('body .header-hero-content-wrapper #hero .hero-illustration', {
+        x: 200, opacity: 0
+    }, {
+        x: 0, opacity: 1, delay: 1
+    });
 });

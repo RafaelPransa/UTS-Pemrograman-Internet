@@ -91,43 +91,40 @@ button {
     --baby-blue: #C8F4FA;
     --soft-lime: #E4FED0;
     --main-color: #333333;
-    --green-primary: #69E00E;
-    --green-hover: #51ac0b;
+    --green-primary: #00b207;
+    --green-hover: #009b06;
 }
 
 body {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
 	line-height: 1;
     color: var(--main-color);
-    height: 100000px;
 }
 
 .header-hero-content-wrapper {
     padding: 2rem 7% 3.4rem;
     background: linear-gradient(to bottom, var(--soft-lime), var(--baby-blue));
-    
+    overflow: hidden;
 }
 
 .header-hero-content-wrapper header {
     background-color: #fff;
-    border-radius: 37px;
+    border-radius: 14px;
 }
 
-
 .header-hero-content-wrapper header nav {
-    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 4rem;
-    border-radius: 37px;
-    background-color: rgba(255, 255, 255,  0.2);
+    padding: 1.5rem 4rem;
+    background-color: rgba(255, 255, 255,  0.4);
     transition: all 0.3s ease-in-out;
+    border-radius: 14px;
 }
 
 .nav-scroll {
     position: fixed;
-    top: 0.4rem;
+    top: 8px;
     left: 7%;
     right: 7%;
     backdrop-filter: blur(7px);
@@ -162,6 +159,10 @@ body {
     color: var(--green-primary);
 }
 
+.header-hero-content-wrapper header nav .end-nav {
+    align-items: center;
+}
+
 .header-hero-content-wrapper header nav .end-nav a .btn-sign {
     padding: 0.5rem 1.3rem;
     background-color: #fff;
@@ -185,11 +186,11 @@ body {
     border: 1px solid var(--green-main);
     background-color: var(--green-primary);
     color: #fff;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.3rem;
     border-radius: 0.4rem;
     font-size: 1rem;
     font-weight: 600;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .header-hero-content-wrapper header nav .end-nav a .btn-register:hover {
@@ -197,6 +198,10 @@ body {
     scale: 1.02;
     background-color: var(--green-hover);
     cursor: pointer;
+}
+
+.header-hero-content-wrapper header nav .end-nav a:last-of-type {
+    display: none;
 }
 
 .header-hero-content-wrapper #hero {
@@ -208,25 +213,28 @@ body {
     padding: 4rem;
     background-color: #fff;
     border-radius: 30px;
+    overflow: hidden; 
 }
 
 .header-hero-content-wrapper #hero .hero-content {
+    overflow: hidden;
     flex: 1.5 1 0;
 }
 
 .header-hero-content-wrapper #hero .hero-content h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: var(--green-primary);
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 
 .header-hero-content-wrapper #hero .hero-content h2 span {
-    font-size: 3rem;
+    font-size: 4rem;
     background: linear-gradient(to right, var(--baby-blue));
     color: var(--main-color);
     padding: 0 1rem;
+    border-radius: 8px;
 }
 
 .header-hero-content-wrapper #hero .hero-content p {
@@ -440,7 +448,7 @@ body {
     line-height: 1.5;
 }
 
-.mobile-nav {
+.bottom-mobile-nav {
     display: none;
 }
 
@@ -621,6 +629,10 @@ body {
 
 @media (max-width: 430px) {
 
+    html {
+        scroll-padding-top: 32px;
+    }
+
     /* pembungkus header dan hero */
     .header-hero-content-wrapper {
         padding: 1rem 6% 3rem;
@@ -689,7 +701,7 @@ body {
     }
 
     .description-content-wrapper {
-        padding: 0 6% 3rem;
+        padding: 0 6% 5rem;
     }
 
     .description-content-wrapper #description {
@@ -698,7 +710,11 @@ body {
 
     .description-content-wrapper #description .description-details {
         flex-direction: column;
-        row-gap: 2rem;
+        row-gap: 3rem;
+    }
+
+    .description-content-wrapper #description .description-details .description-explanation {
+        padding: 1.5rem 1.5rem 3rem;
     }
 
     /* tujuan */
@@ -722,74 +738,78 @@ body {
      }
      
      .goals-wrapper #goals .goals-details .card-goal .beauty-card {
-        min-height: 0.1px;
+        min-height: 100px;
         min-width: 1px;
-        top: -4px;
+        top: 20px;
         left: 0;
-        border-radius: 50px;
+        border-top-right-radius: 42px;
+        border-bottom-right-radius: 42px;
         background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
+        background-color: transparent;
      }
 
-      .goals-wrapper #goals .goals-details .card-goal .card-contents:hover + .beauty-card {
+      .goals-wrapper #goals .goals-details .card-goal .card-contents:hover ~ .beauty-card {
         min-height: 100px;
         border-radius: 0;
         border-top-right-radius: 42px;
         border-bottom-right-radius: 42px;
-        top: 20px;
+        top: 50px;
         left: 0;
-    }
-
-     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(2) .beauty-card {
-        min-height: 100px;
-        min-width: 1px;
-        top: 30px;
-        left: 0;
-        border-radius: 0;
-        border-top-right-radius: 42px;
-        border-bottom-right-radius: 42px;   
-        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
-     }
-
-     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(2):hover .beauty-card {
-        min-height: 100px;
-        top: 80px;
-        left: 0;
-    }
-
-    .goals-wrapper #goals .goals-details .card-goal:nth-of-type(3) .beauty-card {
-        min-height: 100px;
-        min-width: 1px;
-        top: 130px;
-        left: 0;
-        border-radius: 0;
-        border-top-right-radius: 42px;
-        border-bottom-right-radius: 42px;   
-        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
-     }
-
-     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(3):hover .beauty-card {
-        top: 180px;
-        left: 0;
-    }
-    
-    .goals-wrapper #goals .goals-details .card-goal:last-of-type .beauty-card {
-        min-height: 100px;
-        min-width: 1px;
-        top: 180px;
-        left: 0;
-        border-radius: 0;
-        border-top-right-radius: 42px;
-        border-bottom-right-radius: 42px;   
-        background: linear-gradient(to bottom, var(--baby-blue), var(--soft-lime), var(--green-primary));
-     }
-
-     .goals-wrapper #goals .goals-details .card-goal:last-of-type:hover .beauty-card {
-        top: 250px;
-        left: 0;
-    }
-    
+    }   
 
      .goals-wrapper #goals .goals-details .card-goal .card-contents {
         max-width: max-content;
+     }
+
+     /* Mobile nav */
+     .header-hero-content-wrapper header nav .end-nav {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+     }
+
+     .header-hero-content-wrapper header nav .end-nav a:last-of-type {
+        display: inline-block;
+        padding: 4px 7px;
+        background-color: var(--green-hover);
+        border-radius: 20px;
+     }
+
+     .header-hero-content-wrapper header nav .end-nav a svg {
+        max-width: 20px;
+        color: #fff;
+     }
+
+     .bottom-mobile-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(7px);
+        color: #fff;
+     }
+
+     .bottom-mobile-nav nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 4rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 1px solid #ccc;
+     }
+
+     .bottom-mobile-nav nav a{
+        color: var(--main-color);
+     }
+
+     .bottom-mobile-nav nav a:hover{
+        color: var(--green-primary);
+     }
+     
+     .bottom-mobile-nav nav a .menu-mobile p {
+        font-size: 12px;
      }
 }

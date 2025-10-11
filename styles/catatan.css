@@ -1,0 +1,46 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+	line-height: 1;
+    color: var(--main-color);
+    background: linear-gradient(to bottom, var(--soft-lime), var(--baby-blue));
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+header {
+    padding: 2rem 7% 3.4rem;
+}
+
+header nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background-color: rgba(255, 255, 255,  1);
+    transition: all 0.3s ease-in-out;
+    border-radius: 14px;
+}
+
+header nav .end-nav {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+header nav .pict-profile {
+    padding: 20px;
+    background-color: var(--baby-blue);
+    border-radius: 20px;
+}
+
+header nav .name-profile h4 {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+header nav .name-profile p {
+    color: #d2d2d2;
+}
