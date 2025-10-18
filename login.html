@@ -4,27 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="stylesheet" href="styles/login.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
   </head>
   <body>
-    <div class="register-page">
-      <div class="gallery-box-register">
-        <div class="card-gallery">
-          <h2>asdas</h2>
-          <p>adsda</p>
-        </div>
-      </div>
-      <div class="form-register">
-        <h2 class="inter-bold-italic">Racat</h2>
-        <h3 class="inter-semi-bold">Selamat datang di Racat</h3>
+    <main>
+      <div class="container-form">
         <form action="">
-          <button type="button">Dafar dengan google</button>
-          <div>
-            <p>or</p>
+          <h2>Selamat datang di Racat</h2>
+          <label for="email">Email/Username</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Masukkan email atau username"
+            required
+          />
+          <label for="password">Password</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Masukkan password"
+            required
+          />
+          <div class="forgot-password">
+            <span>Lupa password?</span>
+            <a href="">Klik disini</a>
           </div>
+          <button type="submit"><span>Masuk</span></button>
+          <p>Belum punya akun?<a href=""> Daftar disini</a></p>
         </form>
       </div>
-    </div>
+      <div class="container-img">
+        <figure>
+          <img src="img/login-register.png" alt="Catatan">
+        </figure>
+      </div>
+    </main>
   </body>
 </html>
