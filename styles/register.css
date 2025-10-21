@@ -21,7 +21,7 @@ main .container-form {
 
 main .container-form form {
     padding: 2rem;
-    width: 80%;
+    width: 50%;
     max-height: 100%;
     box-sizing: border-box;
     border-radius: 12px;
@@ -44,6 +44,7 @@ main .container-form form label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 14px;
+    font-weight: 600;
     --label-info: '*';
     --label-info-color: red;
 }
@@ -77,19 +78,7 @@ main .container-form form input:focus {
 }
 
 main .container-form form input[name="confirm-password"] {
-    margin-bottom: 3rem;
-}
-
-main .container-form form .forgot-password {
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    margin-bottom: 3rem;
-}
-
-main .container-form form .forgot-password a {
-    color: var(--green-primary);
-    font-weight: 600;
+    margin-bottom: 3.5rem;
 }
 
 main .container-form form button {
@@ -164,4 +153,107 @@ main .container-img figure img {
 
 main .container-img figure img:hover {
     filter: grayscale(0) blur(0);
+}
+
+@media (max-width: 990px) {
+    main {
+        height: 100vh;
+    }
+
+    main .container-form form {
+        width: 80%;
+    }
+
+    main .container-form form input {
+        padding: 1.2rem 1rem;
+        font-size: 14px;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+    }
+
+    main .container-form form button {
+        padding: 1.2rem 1rem;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    main .container-form form p {
+        font-size: 12px;
+    }
+
+    main .container-img figure img {
+        top: 30%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 430px) {
+    main {
+        padding: 0 0 5rem;
+    }
+    main .container-form {
+        padding: 0;
+    }
+
+    main .container-form form {
+        width: 100%;
+        height: 100%;
+        border-bottom: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
+        box-shadow: none;
+    }
+
+    main .container-form form h2 {
+        margin-top: 3rem;
+        margin-bottom: 6rem;
+        font-size: 40px;
+    }
+
+    main .container-form form label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    main .container-form form input {
+        font-size: 14px;
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    main .container-form form h2 {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        font-size: 40px;
+    }
+
+    main .container-form form label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    main .container-form form input {
+        font-size: 14px;
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    main .container-form form button {
+        padding: 1.5rem 1rem;
+    }
+
+    main .container-form form button span {
+        font-size: 14px;
+    }
+
+    main .container-form form p {
+        font-size: 12px;
+    }
+
+    main .container-img {
+        display: none;
+    }
 }

@@ -43,6 +43,7 @@ main .container-form form label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 14px;
+    font-weight: 600;
 }
 
 main .container-form form input {
@@ -150,4 +151,106 @@ main .container-img figure img {
 
 main .container-img figure img:hover {
     filter: grayscale(0) blur(0);
+}
+
+@media (max-width: 992px) {
+    main .container-form form {
+        width: 90%;
+        min-height: 600px;
+        max-height: 900px;
+    }
+
+    main .container-form form h2 {
+        font-size: 30px;
+        margin-bottom: 4rem;
+    }
+
+    main .container-form form label {
+        font-size: 1rem;
+    }
+
+    main .container-form form input {
+        padding: 1.2rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        font-size: 14px;
+    }
+
+    main .container-form form input[name="password"] {
+        margin-bottom: 9px;
+    }
+
+    main .container-form form .forgot-password {
+        font-size: 12px;
+    }
+
+    main .container-form form button {
+        padding: 1.2rem;
+    }
+
+    main .container-form form p {
+        font-size: 12px;
+    }
+
+    main .container-img figure img {
+        top: 40%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    main .container-form {
+        padding: 0;
+    }
+
+    main .container-form form {
+        width: 100%;
+        height: 100%;
+        border-bottom: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    main .container-form form h2 {
+        margin-top: 3rem;
+        margin-bottom: 6rem;
+        font-size: 40px;
+    }
+
+    main .container-form form label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    main .container-form form input {
+        font-size: 14px;
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    main .container-form form input[name="password"] {
+        margin-bottom: 8px;
+    }
+
+    main .container-form form .forgot-password {
+        font-size: 12px;
+    }
+
+    main .container-form form button {
+        padding: 1.5rem 1rem;
+    }
+
+    main .container-form form button span {
+        font-size: 14px;
+    }
+
+    main .container-form form p {
+        font-size: 12px;
+    }
+
+    main .container-img {
+        display: none;
+    }
 }
