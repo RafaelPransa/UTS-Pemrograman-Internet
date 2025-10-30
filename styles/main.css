@@ -102,13 +102,13 @@ body {
 }
 
 .header-hero-content-wrapper {
-    padding: 2rem 7% 3.4rem;
+    padding: 2rem 3% 3.4rem;
     background: linear-gradient(to bottom, var(--soft-lime), var(--baby-blue));
     overflow: hidden;
 }
 
 .header-hero-content-wrapper header {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255,  1);
     border-radius: 14px;
 }
 
@@ -117,19 +117,20 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 4rem;
-    background-color: rgba(255, 255, 255,  0.4);
     transition: all 0.3s ease-in-out;
     border-radius: 14px;
 }
 
 .nav-scroll {
+    background-color: rgba(255, 255, 255,  0.3);
     position: fixed;
-    top: 8px;
-    left: 7%;
-    right: 7%;
-    backdrop-filter: blur(7px);
+    top: 10px;
+    left: 3%;
+    right: 3%;
+    backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 11px -6px #999;
 }
 
 .header-hero-content-wrapper header nav .start-nav h2 {
@@ -216,6 +217,10 @@ body {
     overflow: hidden; 
 }
 
+.hero-scroll {
+    margin-top: 10rem;
+}
+
 .header-hero-content-wrapper #hero .hero-content {
     overflow: hidden;
     flex: 1.5 1 0;
@@ -265,12 +270,32 @@ body {
     background-color: var(--green-primary);
     color: #fff;
     transition: 0.4;
+    position: relative;
+   overflow: hidden;
+}
+
+.header-hero-content-wrapper #hero .hero-content .btn-mencatat::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background-color: var(--green-hover);
+    transition: .3s;
+    border-radius: 40px;
+}
+
+.header-hero-content-wrapper #hero .hero-content .btn-mencatat:hover::before {
+    left: 0;
 }
 
 .header-hero-content-wrapper #hero .hero-content .btn-mencatat:hover {
-    background-color: var(--green-hover);
-    scale: 1.02;
     cursor: pointer;
+}
+
+.header-hero-content-wrapper #hero .hero-content .btn-mencatat span {
+    position: relative;
 }
 
 .header-hero-content-wrapper #hero .hero-illustration {
@@ -284,7 +309,7 @@ body {
 }
 
 .description-content-wrapper {
-    padding: 0 7% 3rem;
+    padding: 0 3% 3rem;
     background-color: #fff;
     text-align: center;
 }
@@ -346,7 +371,7 @@ body {
 }
 
 .goals-wrapper {
-    padding: 2rem 7%;
+    padding: 2rem 3%;
     background: linear-gradient(to bottom, var(--soft-lime), var(--baby-blue));
 }
 
@@ -364,13 +389,18 @@ body {
     margin: 2rem 0;
     display: flex;
     justify-content: space-between;
-    column-gap: 1rem;
+    column-gap: 3rem;
 }
 
 .goals-wrapper #goals .goals-details .card-goal {
     display: flex;
     flex-direction: row-reverse;
     text-align: left;
+}
+
+.goals-wrapper #goals .goals-details .card-goal:nth-of-type(odd) {
+    position: relative;
+    top: 40px;
 }
 
 .goals-wrapper #goals .goals-details .card-goal .beauty-card {
