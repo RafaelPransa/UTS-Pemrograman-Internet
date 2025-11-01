@@ -419,7 +419,7 @@ main #content-layout .container-calendar .days table tbody tr td:hover {
 }
 
 /* Pop up form tambah transaksi */
-#transaction-modal {
+#transaction-modal, #edit-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -433,7 +433,7 @@ main #content-layout .container-calendar .days table tbody tr td:hover {
     z-index: 1000;
 }
 
-.modal-hidden {
+.modal-hidden, .edit-hidden {
     display: none !important;
 }
 
