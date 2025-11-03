@@ -236,7 +236,6 @@ main #content-layout .container-list-transactions .transaction {
 }
 
 main #content-layout .container-list-transactions .transaction:hover {
-    cursor: pointer;
     border: 2px solid var(--green-primary);
 }
 
@@ -299,6 +298,7 @@ main #content-layout .container-list-transactions .transaction .interaction .cho
     font-size: 10px;
     font-weight: 600;
     transition: .3s;
+    cursor: pointer;
 }
 
 main #content-layout .container-list-transactions .transaction .interaction .choise .detail:hover {

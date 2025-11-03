@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = 'Input Transaksi Baru';
         saveBtn.textContent = 'Simpan';
         formInput.reset();
+        setModalReadOnly(false);
         modal.classList.add('modal-hidden');
     }
     
@@ -85,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         container.innerHTML = html;
         setupTransactionListeners();
+        sumTotal();
     }
 
     function setupTransactionListeners() {
@@ -109,6 +111,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.classList.remove('modal-hidden');
             });
         });
+
+        document.querySelectorAll('.detail').forEach(button => {
+            button.addEventListener('click', function() {
+                const recordId = this.getAttribute('data-id');
+                const recordToShow = findIdEdit(recordId);
+                if(!recordToShow) return;
+
+                fillFormForEdit(recordToShow); 
+
+                setModalReadOnly(true); 
+        
+                document.getElementById('modal-title').textContent = 'Detail Transaksi';
+                document.getElementById('close-modal-btn').textContent = 'Tutup'
+                document.querySelector('#save-transaction-btn').classList.add('modal-hidden');
+        
+                modal.classList.remove('modal-hidden');
+            });
+        });
     }
 
     formInput.addEventListener('submit', (e) => {
@@ -121,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Nominal transaksi harus lebih besar dari Rp 0.");
             return;
         }
+
         if (inputItem === "") {
             alert("Keterangan/Barang tidak boleh kosong.");
             return;
@@ -149,12 +170,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     openBtnDesktop.addEventListener('click', () => { 
         document.getElementById('date').value = new Date().toISOString().substring(0, 10);
-        resetModalToCreate(); // Reset sebelum membuka
+        resetModalToCreate();
         modal.classList.remove('modal-hidden');
     });
     
 
-    closeBtn.addEventListener('click', resetModalToCreate); 
+    closeBtn.addEventListener('click', resetModalToCreate);
+
+    function setModalReadOnly(isReadOnly) {
+        formInput.item.disabled = isReadOnly;
+        formInput.amount.disabled = isReadOnly;
+        formInput.type.disabled = isReadOnly;
+        
+        if (isReadOnly) {
+            document.querySelector('#save-transaction-btn').classList.add('modal-hidden');
+        } else {
+            document.querySelector('#save-transaction-btn').classList.remove('modal-hidden');
+        };
+    };
+
+    function sumTotal() {
+        const records = getRecords();
+        const summaryIncomeAmount = document.querySelector('.summary-card.income .summary-amount');
+        const summaryExpenseAmount = document.querySelector('.summary-card.expense .summary-amount');
+        const summaryBalance = document.querySelector('.summary-card.balance .summary-amount');
+        const totals = records.reduce((acc, record) => {
+            const amount = Number(record.amount);
+            if (record.type === 'income') {
+                acc.income += amount;
+            } else if (record.type === 'expense') {
+                acc.expense += amount;
+            };
+            return acc;
+        }, {income: 0, expense: 0});
+
+        totals.balance = totals.income - totals.expense;
+
+        summaryIncomeAmount.innerHTML = `Rp ${totals.income.toLocaleString('id-ID')}`;
+        summaryExpenseAmount.innerHTML = `Rp ${totals.expense.toLocaleString('id-ID')}`;
+        summaryBalance.innerHTML = `Rp ${totals.balance.toLocaleString('id-ID')}`;
+        
+        const summaryIncomeDetail = document.querySelector('.summary-card.income .summary-detail');
+        const summaryExpenseDetail = document.querySelector('.summary-card.expense .summary-detail');
+        const summaryBalanceDetail = document.querySelector('.summary-card.balance .summary-detail');
+        const incomeCount = records.filter(r => r.type === 'income').length;
+        const expenseCount = records.filter(r => r.type === 'expense').length;
+        const totalTransaction = incomeCount + expenseCount;
+
+        summaryIncomeDetail.innerHTML = `${incomeCount} Transaksi;`
+        summaryExpenseDetail.innerHTML = `${expenseCount} Transaksi;`
+        summaryBalanceDetail.innerHTML = `${totalTransaction} Total transaksi;`
+    
+    }
 
     modal.addEventListener('click', (e) => {
         if (e.target.id === 'transaction-modal') {
