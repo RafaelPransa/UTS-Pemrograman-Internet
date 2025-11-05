@@ -192,18 +192,27 @@
 
     <div id="transaction-modal" class="modal-hidden">
       <div class="modal-content">
-        <h2 id="modal-title">Input Transaksi Baru</h2>
+        <h2 id="modal-title"></h2>
         <form action="" id="transaction-form">
-          <label for="type">Jenis Transaksi</label>
-          <select name="type" id="type" required>
-            <option value="income">Pemasukan</option>
-            <option value="expense">Pengeluaran</option>
-          </select>
+          <h3>Jenis Transaksi</h3>
+          <div class="radio-group">
+            <label for="type-income">
+              <input type="radio" id="type-income"
+              name="type" value="income" required checked>Pemasukan
+            </label>
+            <label for="type-expense">
+              <input type="radio" id="type-expense"
+              name="type" value="expense" required>Pengeluaran
+            </label>
+          </div>
           <label for="item">Barang/Keterangan</label>
           <input type="text" name="item" id="item" placeholder="Contoh: Gaji Bulanan, Beli Kopi" required>
           <label for="amount">Nominal (Rp)</label>
           <input type="number" id="amount" name="amount" min="0" placeholder="Contoh: 50000" required>
-          <input type="hidden" name="date" id="date">
+          <label for="date">Tanggal</label>
+          <input type="date" name="date" id="date">
+          <label for="notes">Catatan</label>
+          <textarea name="notes" id="notes" placeholder="Tambahkan catatan. Misal kopi 5 5k dan rokok surya 25k"></textarea>
           <div class="modal-actions">
             <button type="button" id="close-modal-btn">Batal</button>
             <button type="submit" id="save-transaction-btn">Simpan</button>

@@ -166,21 +166,23 @@ body {
 
 .header-hero-content-wrapper header nav .end-nav a .btn-sign {
     padding: 0.5rem 1.3rem;
-    background-color: #fff;
+    background-color: transparent;
     color: var(--green-primary);
-    border: 1px solid var(--green-primary);
+    outline: 1px solid var(--green-primary);
     border-radius: 0.4rem;
     font-size: 1rem;
     font-weight: 600;
     margin-right: 10px;
-    transition: 0.3s;
+    transition: transform .2s ease-in, background-color .2s ease-in, box-shadow .2s ease-in, color .2s ease-in;
+    cursor: pointer;
 }
 
 .header-hero-content-wrapper header nav .end-nav a .btn-sign:hover {
-    cursor: pointer;
-    color: var(--green-hover);
-    border: 1px solid var(--green-hover);
-    scale: 1.025;
+    background-color: #fff;
+    border: none;
+    outline: 1px solid var(--green-hover);
+    box-shadow: 0px 2px 8px -2px var(--green-hover);
+    transform: translateY(-2px);
 }
 
 .header-hero-content-wrapper header nav .end-nav a .btn-register {
@@ -191,14 +193,14 @@ body {
     border-radius: 0.4rem;
     font-size: 1rem;
     font-weight: 600;
-    transition: 0.3s;
+    transition: transform .2s ease-in, background-color .2s ease-in, box-shadow .2s ease-in;
+    cursor: pointer;
 }
 
 .header-hero-content-wrapper header nav .end-nav a .btn-register:hover {
     background-color: var(--green-hover);
-    scale: 1.02;
-    background-color: var(--green-hover);
-    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 8px -2px var(--green-hover);
 }
 
 .header-hero-content-wrapper header nav .end-nav a:last-of-type {
@@ -222,7 +224,6 @@ body {
 }
 
 .header-hero-content-wrapper #hero .hero-content {
-    overflow: hidden;
     flex: 1.5 1 0;
 }
 
@@ -399,8 +400,7 @@ body {
 }
 
 .goals-wrapper #goals .goals-details .card-goal:nth-of-type(odd) {
-    position: relative;
-    top: 40px;
+    transform: translateY(40px);
 }
 
 .goals-wrapper #goals .goals-details .card-goal .beauty-card {
@@ -491,7 +491,7 @@ body {
     /* header-nav */
 
     .header-hero-content-wrapper header nav {
-        padding: 0.6rem 3rem;
+        padding: 1rem 3rem;
     }
 
     .nav-scroll {
@@ -663,9 +663,13 @@ body {
         scroll-padding-top: 32px;
     }
 
+    body {
+        padding-bottom: 4rem;
+    }
+
     /* pembungkus header dan hero */
     .header-hero-content-wrapper {
-        padding: 1rem 6% 3rem;
+        padding: 1rem 10% 3rem;
     }
 
     /* header */
@@ -675,7 +679,9 @@ body {
 
     .header-hero-content-wrapper header nav {
         background-color: transparent;
-        padding: 0;
+        padding: 20px 15px;
+        left: 2%;
+        right: 2%;
     }
 
     .header-hero-content-wrapper header nav .start-nav a h2 {
@@ -698,19 +704,26 @@ body {
     /* hero */
 
     .header-hero-content-wrapper #hero {
-        padding: 1.5rem 2rem;
-        border-radius: 15px;
+        padding: 1rem;
+        border-radius: 2px;
         flex-direction: column;
         row-gap: 1rem;
+        max-height: 500px;
+        outline: 20px solid #fff;
+        box-sizing: border-box;
     }
 
     .header-hero-content-wrapper #hero .hero-content {
-        flex: 1 1 0;
+        flex: 2 1 490px;
+    }
+
+    .header-hero-content-wrapper #hero .hero-illustration img {
+        transform: translate(60px, -20px);
     }
 
     .header-hero-content-wrapper #hero .hero-content h2 {
-        font-size: 2rem;
-        line-height: 1.2;
+        font-size: 2.3rem;
+        line-height: 1;
     }
 
     .header-hero-content-wrapper #hero .hero-content h2 span {
@@ -719,13 +732,13 @@ body {
     }
 
     .header-hero-content-wrapper #hero .hero-content p {
-        margin-top: 1rem;
+        margin-top: 2rem;
         line-height: 1;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .header-hero-content-wrapper #hero .hero-content a .btn-mencatat {
-        margin-top: 2rem;
+        margin-top: 3rem;
         padding: 1rem 1.5rem;
         border-radius: 24px;
     }
@@ -766,6 +779,10 @@ body {
         flex-direction: row;
         column-gap: 0;
      }
+
+     .goals-wrapper #goals .goals-details .card-goal:nth-of-type(odd) {
+        transform: none;
+    }
      
      .goals-wrapper #goals .goals-details .card-goal .beauty-card {
         min-height: 100px;
