@@ -1,6 +1,7 @@
-import { getRecords, saveRecord, deleteRecord, findIdEdit, updateRecord } from './data-storage.js';
+import { getRecords, saveRecord, deleteRecord, findIdEdit, updateRecord, getFilteredRecords } from './data-storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- DOM REFERENCES ---
     const containerAction = document.querySelector('#action-bar .container');
     const btnAddMobileDiv = document.querySelector('#action-bar .btn-add-mobile');
     const modal = document.getElementById('transaction-modal');
@@ -12,7 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentEditId = null; 
 
-    // Btton pindah(responsive)
+    // Filter elements
+    const yearFilter = document.getElementById('years');
+    const monthFilter = document.getElementById('months');
+    const dayFilter = document.getElementById('days');
+
+    // --- UI/HELPER FUNCTIONS ---
     function repositionButton() {
         const button = document.getElementById('open-modal-desktop');
         if (!button) return; 
@@ -49,11 +55,64 @@ document.addEventListener('DOMContentLoaded', () => {
         saveBtn.textContent = 'Update';
     }
 
-    function loadTransactions() {
-        const records = getRecords();
-        const container = document.querySelector('.container-list-transactions');
+    function setModalReadOnly(isReadOnly) {
+        formInput.item.disabled = isReadOnly;
+        formInput.amount.disabled = isReadOnly;
+        formInput.type.disabled = isReadOnly;
+        
+        if (isReadOnly) {
+            document.querySelector('#save-transaction-btn').classList.add('modal-hidden');
+        } else {
+            document.querySelector('#save-transaction-btn').classList.remove('modal-hidden');
+        };
+    }
 
+    function sumTotal(filter = {}) {
+        const records = getFilteredRecords(filter);
+
+        // 2. Lakukan Reduksi pada data yang sudah difilter
+        const totals = records.reduce((acc, record) => {
+            const amount = Number(record.amount);
+            if (record.type === 'income') {
+                acc.income += amount;
+            } else if (record.type === 'expense') {
+                acc.expense += amount;
+            }
+            return acc;
+        }, {income: 0, expense: 0});
+
+        totals.balance = totals.income - totals.expense;
+
+        // 3. Update DOM
+        const summaryIncomeAmount = document.querySelector('.summary-card.income .summary-amount');
+        const summaryExpenseAmount = document.querySelector('.summary-card.expense .summary-amount');
+        const summaryBalance = document.querySelector('.summary-card.balance .summary-amount');
+        
+        summaryIncomeAmount.innerHTML = `Rp ${totals.income.toLocaleString('id-ID')}`;
+        summaryExpenseAmount.innerHTML = `Rp ${totals.expense.toLocaleString('id-ID')}`;
+        summaryBalance.innerHTML = `Rp ${totals.balance.toLocaleString('id-ID')}`;
+        
+        const summaryIncomeDetail = document.querySelector('.summary-card.income .summary-detail');
+        const summaryExpenseDetail = document.querySelector('.summary-card.expense .summary-detail');
+        const summaryBalanceDetail = document.querySelector('.summary-card.balance .summary-detail');
+        
+        const incomeCount = records.filter(r => r.type === 'income').length;
+        const expenseCount = records.filter(r => r.type === 'expense').length;
+        const totalTransaction = incomeCount + expenseCount;
+
+        summaryIncomeDetail.innerHTML = `${incomeCount} Transaksi;`
+        summaryExpenseDetail.innerHTML = `${expenseCount} Transaksi;`
+        summaryBalanceDetail.innerHTML = `${totalTransaction} Total transaksi;`
+    }
+
+    function loadTransactions(filter = {}) {
+        const records = getFilteredRecords(filter);
+
+       
+
+        const container = document.querySelector('.container-list-transactions');
         let html = '<h2>Daftar Transaksi</h2>';
+        
         if (records.length === 0) {
              html += '<p>Belum ada transaksi yang tercatat.</p>';
         } else {
@@ -86,16 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
         
         container.innerHTML = html;
         setupTransactionListeners();
-        sumTotal();
-    }
+        sumTotal(filter); 
+    } 
 
     function setupTransactionListeners() {
+
         document.querySelectorAll('.delete').forEach(button => {
              button.addEventListener('click', function () {
                  const recordId = this.getAttribute('data-id');
                  if (confirm(`Apakah anda yakin ingin menghapus transaksi (ID: ${recordId})`)) {
                      deleteRecord(recordId);
-                     loadTransactions();
+                     applyFilters(); 
                  };
              });
         });
@@ -119,18 +179,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(!recordToShow) return;
 
                 fillFormForEdit(recordToShow); 
-
                 setModalReadOnly(true); 
-        
+                
                 document.getElementById('modal-title').textContent = 'Detail Transaksi';
                 document.getElementById('close-modal-btn').textContent = 'Tutup'
                 document.querySelector('#save-transaction-btn').classList.add('modal-hidden');
-        
+                
                 modal.classList.remove('modal-hidden');
             });
         });
     }
 
+    // --- SUBMIT LISTENER ---
     formInput.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -165,8 +225,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         resetModalToCreate(); 
-        loadTransactions(); 
+        applyFilters(); 
     });
+
+    function applyFilters() {
+        const filters = {
+            year: yearFilter.value,
+            month: monthFilter.value,
+            day: dayFilter.value
+        };
+
+        loadTransactions(filters);
+        sumTotal(filters);
+    }
+
+    // --- INIT CALLS ---
+    yearFilter.addEventListener('change', applyFilters);
+    monthFilter.addEventListener('change', applyFilters);
+    dayFilter.addEventListener('change', applyFilters);
 
     openBtnDesktop.addEventListener('click', () => { 
         document.getElementById('date').value = new Date().toISOString().substring(0, 10);
@@ -174,54 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('modal-hidden');
     });
     
-
     closeBtn.addEventListener('click', resetModalToCreate);
-
-    function setModalReadOnly(isReadOnly) {
-        formInput.item.disabled = isReadOnly;
-        formInput.amount.disabled = isReadOnly;
-        formInput.type.disabled = isReadOnly;
-        
-        if (isReadOnly) {
-            document.querySelector('#save-transaction-btn').classList.add('modal-hidden');
-        } else {
-            document.querySelector('#save-transaction-btn').classList.remove('modal-hidden');
-        };
-    };
-
-    function sumTotal() {
-        const records = getRecords();
-        const summaryIncomeAmount = document.querySelector('.summary-card.income .summary-amount');
-        const summaryExpenseAmount = document.querySelector('.summary-card.expense .summary-amount');
-        const summaryBalance = document.querySelector('.summary-card.balance .summary-amount');
-        const totals = records.reduce((acc, record) => {
-            const amount = Number(record.amount);
-            if (record.type === 'income') {
-                acc.income += amount;
-            } else if (record.type === 'expense') {
-                acc.expense += amount;
-            };
-            return acc;
-        }, {income: 0, expense: 0});
-
-        totals.balance = totals.income - totals.expense;
-
-        summaryIncomeAmount.innerHTML = `Rp ${totals.income.toLocaleString('id-ID')}`;
-        summaryExpenseAmount.innerHTML = `Rp ${totals.expense.toLocaleString('id-ID')}`;
-        summaryBalance.innerHTML = `Rp ${totals.balance.toLocaleString('id-ID')}`;
-        
-        const summaryIncomeDetail = document.querySelector('.summary-card.income .summary-detail');
-        const summaryExpenseDetail = document.querySelector('.summary-card.expense .summary-detail');
-        const summaryBalanceDetail = document.querySelector('.summary-card.balance .summary-detail');
-        const incomeCount = records.filter(r => r.type === 'income').length;
-        const expenseCount = records.filter(r => r.type === 'expense').length;
-        const totalTransaction = incomeCount + expenseCount;
-
-        summaryIncomeDetail.innerHTML = `${incomeCount} Transaksi;`
-        summaryExpenseDetail.innerHTML = `${expenseCount} Transaksi;`
-        summaryBalanceDetail.innerHTML = `${totalTransaction} Total transaksi;`
-    
-    }
 
     modal.addEventListener('click', (e) => {
         if (e.target.id === 'transaction-modal') {
@@ -229,7 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    loadTransactions();
+    // Panggil applyFilters() untuk memuat data awal (dengan filter default/kosong)
+    applyFilters(); 
 
     window.addEventListener('resize', repositionButton);
     repositionButton(); 

@@ -37,3 +37,25 @@ export function updateRecord(editedRecord) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
     }
 }
+
+export function getFilteredRecords(filter = {}) {
+    let records = getRecords();
+
+    if (filter.year && filter.year !== '') {
+        records = records.filter(record => 
+        new Date(record.date).getFullYear() === Number(filter.year));
+    }
+
+    if (filter.month && filter.month !== '') {
+        records = records.filter(record => 
+        new Date(record.date).getMonth() + 1  === Number(filter.month));
+    }
+
+        // 3. Filter HARI
+    if (filter.day && filter.day !== '') {
+        records = records.filter(record => 
+        new Date(record.date).getDate() === Number(filter.day));
+        }
+    
+    return records;
+};
