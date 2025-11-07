@@ -8,7 +8,7 @@ import {
 } from "./data-storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- DOM REFERENCES ---
+  // --- DOM REFERENCES (Perbaikan: Deklarasi Alert di sini) ---
   const containerAction = document.querySelector("#action-bar .container");
   const btnAddMobileDiv = document.querySelector("#action-bar .btn-add-mobile");
   const modal = document.getElementById("transaction-modal");
@@ -21,12 +21,53 @@ document.addEventListener("DOMContentLoaded", () => {
     "#transaction-modal .modal-content"
   );
 
+  // Deklarasi Elemen Custom Alert
+  const customAlert = document.getElementById("custom-alert");
+  const alertTitle = document.getElementById("alert-title");
+  const alertMessage = document.getElementById("alert-message");
+  const alertOkBtn = document.getElementById("alert-ok-btn");
+  const alertCancelBtn = document.getElementById("alert-cancel-btn");
+
   let currentEditId = null;
 
   // Filter elements
   const yearFilter = document.getElementById("years");
   const monthFilter = document.getElementById("months");
   const dayFilter = document.getElementById("days");
+
+  // --- ALERT FUNCTIONS (Ditambahkan untuk mengganti alert() bawaan) ---
+  function showAlert(title, message, actionOke, actionCancel, onConfirm) {
+    alertTitle.textContent = title;
+    alertMessage.textContent = message;
+    alertOkBtn.textContent = actionOke;
+    alertCancelBtn.textContent = actionCancel;
+
+    customAlert.classList.remove("modal-hidden");
+
+    window.currentAlertConfirmAction = onConfirm;
+  }
+
+  alertOkBtn.addEventListener("click", () => {
+    if (typeof window.currentAlertConfirmAction === "function") {
+      window.currentAlertConfirmAction();
+    }
+
+    customAlert.classList.add("modal-hidden");
+
+    window.currentAlertConfirmAction = null;
+  });
+
+  alertCancelBtn.addEventListener("click", () => {
+    customAlert.classList.add("modal-hidden");
+  });
+
+  if (customAlert) {
+    customAlert.addEventListener("click", (e) => {
+      if (e.target.id === "custom-alert") {
+        customAlert.classList.add("modal-hidden");
+      }
+    });
+  }
 
   // --- UI/HELPER FUNCTIONS ---
   function repositionButton() {
@@ -46,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetModalToCreate() {
     currentEditId = null;
-    modalTitle.textContent = "Tambah Transaksi";
+    modalTitle.textContent = "Input Transaksi Baru";
     saveBtn.textContent = "Simpan";
     formInput.reset();
     setModalReadOnly(false);
@@ -84,8 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateString = new Date(record.date).toISOString().substring(0, 10);
     formInput.date.value = dateString;
 
-    modalTitle.textContent = "Edit Transaksi";
-    saveBtn.textContent = "Update";
+    modalTitle.textContent = "Detail Transaksi"; // Judul berbeda untuk Detail
+    saveBtn.textContent = "Update"; // Text ini akan disembunyikan
   }
 
   function setModalReadOnly(isReadOnly) {
@@ -112,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function sumTotal(filter = {}) {
     const records = getFilteredRecords(filter);
 
-    // 2. Lakukan Reduksi pada data yang sudah difilter
     const totals = records.reduce(
       (acc, record) => {
         const amount = Number(record.amount);
@@ -128,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totals.balance = totals.income - totals.expense;
 
-    // 3. Update DOM
+    // --- UPDATE SUMMARY AMOUNTS (DOM) ---
     const summaryIncomeAmount = document.querySelector(
       ".summary-card.income .summary-amount"
     );
@@ -147,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )}`;
     summaryBalance.innerHTML = `Rp ${totals.balance.toLocaleString("id-ID")}`;
 
+    // --- UPDATE SUMMARY DETAILS (DOM) ---
     const summaryIncomeDetail = document.querySelector(
       ".summary-card.income .summary-detail"
     );
@@ -223,14 +264,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".delete").forEach((button) => {
       button.addEventListener("click", function () {
         const recordId = this.getAttribute("data-id");
-        if (
-          confirm(
-            `Apakah anda yakin ingin menghapus transaksi (ID: ${recordId})`
-          )
-        ) {
-          deleteRecord(recordId);
-          applyFilters();
-        }
+
+        customAlert.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        showAlert(
+          "Hapus Transaksi",
+          "Apakah anda yakin untuk menghapus transaksi tersebut?",
+          "Hapus",
+          "Kembali",
+          function () {
+            deleteRecord(recordId);
+            applyFilters();
+          }
+        );
       });
     });
 
@@ -238,9 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", function () {
         const recordId = this.getAttribute("data-id");
         const recordToEdit = findIdEdit(recordId);
-        if (!recordToEdit) return;
+        alertCancelBtn.style.display = "none";
 
+        if (!recordToEdit) return;
         currentEditId = recordToEdit.id;
+
         fillFormForEdit(recordToEdit);
         modal.classList.remove("modal-hidden");
       });
@@ -272,14 +319,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const inputAmount = parseFloat(formInput.amount.value);
     const inputItem = formInput.item.value.trim();
+    alertCancelBtn.style.display = "none";
 
     if (isNaN(inputAmount) || inputAmount <= 0) {
-      alert("Nominal transaksi harus lebih besar dari Rp 0.");
-      return;
-    }
+      // Mengganti alert() bawaan dengan Custom Alert
 
-    if (inputItem === "") {
-      alert("Keterangan/Barang tidak boleh kosong.");
+      alertOkBtn.addEventListener("click", () => {
+        customAlert.classList.add("modal-hidden");
+      });
+      showAlert(
+        "VALIDASI NOMINAL",
+        "Nominal transaksi harus lebih besar dari Rp 0.",
+        "Oke"
+      );
+      return;
+    } else if (inputItem === "") {
+      // Mengganti alert() bawaan dengan Custom Alert
+      alertOkBtn.addEventListener("click", () => {
+        customAlert.classList.add("modal-hidden");
+      });
+      showAlert(
+        "VALIDASI KETERANGAN",
+        "Keterangan/Barang tidak boleh kosong.",
+        "Oke"
+      );
       return;
     }
 
@@ -297,8 +360,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isEditing) {
       updateRecord(data);
+
+      showAlert(
+        "TRANSAKSI DIPERBAHARUI",
+        "Perubahan transaksi berhasil disimpan.",
+        "Oke"
+      );
     } else {
       saveRecord(data);
+      showAlert(
+        "TRANSAKSI DITAMBAHKAN",
+        "Transaksi baru berhasil ditambahkan.",
+        "Oke"
+      );
+      alertOkBtn.addEventListener("click", () => {
+        customAlert.classList.add("modal-hidden");
+      });
     }
 
     resetModalToCreate();
